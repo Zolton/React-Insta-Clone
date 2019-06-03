@@ -15,6 +15,9 @@ function CommentSection(props) {
   return (
     <div>
       <div>Comment Section rendering</div>
+      {props.comment.map(e => {
+        return e.username + " " + e.text
+        })}
     </div>
   );
 }

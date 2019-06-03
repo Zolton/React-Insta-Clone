@@ -4,17 +4,15 @@ import CommentSection from "./CommentSection";
 
 // cuts dummyData down to just comments and sends it to CommentSection
 
-class PostContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        {props.post.map(comment => {
-    return <CommentSection comment={comment} />
-    })}
-    }
-render() {
-    {props.post.map(comment => {
-        return <CommentSection comment={comment} />
-        })}
+// class PostContainer extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         {props.post.map(comment => {
+//     return <CommentSection comment={comment} />
+//     })}
+//     }
+// render() {
+    
  //   console.log(props.dataPost)
 //   console.log("props are " + props);
 //   console.log(props)
@@ -24,15 +22,17 @@ render() {
 //   test = props.data.map(e=>props.data.comments)
 //   console.log("test is " + test)
 //<CommentSection userComments={props.data.map(e=>e.comments)} />
-
+function PostContainer(props) {
   return (
     <div>
 
       <div>Post Container rendering</div>
-      
+      {props.post.map(comment => {
+        return <CommentSection comment={comment} />
+        })}
     </div>
   );
 }
-}
+
 
 export default PostContainer;
