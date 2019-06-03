@@ -17,8 +17,12 @@ class App extends React.Component {
     return (
       <div>
       <div>App page rendering</div>
+
+      {this.state.data.map(post => {
+      return <PostContainer post={post} key={post.id} />
+      })}
+  
       
-      <PostContainer  dataPost={this.state.data} />
       
       </div>
   )

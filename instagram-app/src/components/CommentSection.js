@@ -7,8 +7,7 @@ import PostContainer from "./PostContainer";
  // {props.userComments.text[0]}
 
 function CommentSection(props) {
-
-    console.log(props.dataComment[0])
+   // console.log(props.dataComment)
  //   console.log(props.userComments[0])
 //   console.log("props are " + props.userComments);
 //   console.log(props.userComments[0].text)
@@ -16,7 +15,6 @@ function CommentSection(props) {
   return (
     <div>
       <div>Comment Section rendering</div>
-       
     </div>
   );
 }
