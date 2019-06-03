@@ -1,13 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import dummyData from './';
+import dummyData from "./dummy-data"
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      test
-    </div>
+    console.log(props)
+      
   );
 }
 
