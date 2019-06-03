@@ -6,16 +6,20 @@ import PostContainer from './components/PostContainer';
 
 class App extends React.Component {
   state = {
-    dummyData: dummyData
+    data: dummyData
   }
 
   render (){
     // Just sends the dummyData out to PostContainer
-    console.log(this.state.dummyData)
+    // console.log(this.state.dummyData[0])
+    //userData={this.state.dummyData.map(e=>e.comments)}
+
     return (
       <div>
       <div>App page rendering</div>
-      <PostContainer data={this.state.dummyData} />
+      
+      <PostContainer  dataPost={this.state.data} />
+      
       </div>
   )
 }

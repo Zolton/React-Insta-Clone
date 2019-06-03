@@ -7,13 +7,16 @@ import PostContainer from "./PostContainer";
  // {props.userComments.text[0]}
 
 function CommentSection(props) {
-  console.log("props are " + props.userComments);
-  console.log(props.userComments)
-  console.log(props.userComments.map(e=>e.text));
+
+    console.log(props.dataComment[0])
+ //   console.log(props.userComments[0])
+//   console.log("props are " + props.userComments);
+//   console.log(props.userComments[0].text)
+//   console.log(props.userComments.map(e=>e.text));
   return (
     <div>
       <div>Comment Section rendering</div>
-        {props.userComments.map(e=>e.text)}
+       
     </div>
   );
 }
