@@ -19,16 +19,11 @@ class PostContainer extends React.Component {
     this.setState({[event.target.name]:event.target.value})
   }
  
-//   addComment = event => {
-//     event.preventDefault();
-//     const newComment = {
-//      id: Date.now(),
-//      username: "test run",
-//      text: ""
-//    };
-   
-//    this.setState({   });
-//  }
+  submit = event => {
+    this.state.props.addComment(event, this.state.props);
+    this.setState({newComment: ""})
+  }
+
       
 render () {
   //console.log("post container below " + this.state.props.userData);
@@ -39,7 +34,7 @@ render () {
         return <CommentSection userComments={usercomms} />;
       })}
 
-      <form>
+      <form onSubmit={this.submit}>
 
       <input 
         type="text" 
@@ -47,8 +42,9 @@ render () {
         placeholder="Add a comment..."
         value={this.state.newComment}
         onChange={this.changeHandler}
-        onSubmit={addComment}
+        
          />
+         <button>Add new Comment</button>
 
          </form>
 

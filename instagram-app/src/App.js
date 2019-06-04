@@ -26,20 +26,6 @@ class App extends React.Component {
   }
   
 
-  // addTask = e => {
-  //   e.preventDefault();
-  //   const newTask = {
-  //     phrase: this.state.taskInput,
-  //     id: Date.now(),
-  //     completed: false
-  //   };
-   
-  //   this.setState({
-  //     userData: [...this.state.tasks, newTask],
-  //     taskInput: ""
-  //   });
-  // };
-
 
   render() {
    
@@ -52,7 +38,7 @@ class App extends React.Component {
     return (
       <div>
         {this.state.data.map(user => {
-          return <PostContainer userData={user} addComment={this.addComment}/>;
+          return <PostContainer userData={user} addComment={this.addComment} />;
         })}
       </div>
     );
