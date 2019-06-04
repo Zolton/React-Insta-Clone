@@ -16,17 +16,21 @@ function CommentSection(props) {
 //   console.log("props are " + props.userComments);
 //   console.log(props.userComments[0].text)
 //   console.log(props.userComments.map(e=>e.text));
-console.log("Comment sectio below" + props.userComments)
+console.log("Comment section below" + props.userComments)
 console.log(props.userComments)
+// {props.userComments.map(nameText => {
+//     return nameText.username
+//   })}.map(nameText => nameText.text)}
+//.map(nameText => nameText.username)}
+
   return (
     
     <div> 
-        Comment Section rendering 
-
+        <div> Comment Section rendering </div>
+        {props.userComments}
+        {props.userComments}
+      
     </div>
-     
-    
-    
   )
 }
 

@@ -17,15 +17,14 @@ import CommentSection from "./CommentSection";
 //
 //})}
 
-
 // render() {
-    
- //   console.log(props.dataPost)
+
+//   console.log(props.dataPost)
 //   console.log("props are " + props);
 //   console.log(props)
 //   console.log(props.commentsArray)
 //   console.log(props.commentsArray[0])
- //console.log(props.commentsArray.map(e=>e))
+//console.log(props.commentsArray.map(e=>e))
 //   test = props.data.map(e=>props.data.comments)
 //   console.log("test is " + test)
 //<CommentSection userComments={props.data.map(e=>e.comments)} />
@@ -33,17 +32,22 @@ import CommentSection from "./CommentSection";
 // {props.post.map(comment => {
 //     return <CommentSection comment={comment} />
 //     })}
+
+// <CommentSection userComments={props.userData.map(e=>e)} />
+
+
 function PostContainer(props) {
-    console.log("post container below" + props.userData)
-    console.log(props.userData)
+  console.log("post container below" + props.userData);
+  console.log(props.userData);
   return (
     <div>
-       <div> PostContainer Rendering</div>
-    <CommentSection userComments={props.userData.map(e=>e)} />
-    
+      <div> PostContainer Rendering </div>
+      {props.userData.comments.map(puppies => {
+    return <CommentSection userComments={puppies} />;
+  })}
+      
     </div>
   );
 }
-
 
 export default PostContainer;

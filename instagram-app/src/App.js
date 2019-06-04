@@ -3,10 +3,8 @@ import './App.css';
 import dummyData from "./dummy-data"
 import PostContainer from './components/PostContainer';
 
-// {this.state.data.map(post => {
-//   return <PostContainer post={post} key={post.id} />
-//   })}
 
+// <PostContainer userData={this.state.data.map(e=>e.comments)} />
 class App extends React.Component {
   state = {
     data: dummyData
@@ -24,8 +22,11 @@ class App extends React.Component {
       <div>
       <div>App page rendering</div>
 
-     <PostContainer userData={this.state.data.map(e=>e.comments)} />
-  
+   
+      {this.state.data.map(puppy => {
+ return <PostContainer 
+          userData={puppy} />
+  })}
       
       
       </div>
