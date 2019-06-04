@@ -3,7 +3,6 @@ import "./App.css";
 import dummyData from "./dummy-data";
 import PostContainer from "./components/PostContainer";
 
-// <PostContainer userData={this.state.data.map(e=>e.comments)} />
 class App extends React.Component {
   state = {
     data: []
@@ -14,7 +13,6 @@ class App extends React.Component {
   }
 
   render() {
-    
   
     // maps thru dummData, sends each object (3) to PostContainer as
     // its own set of data
