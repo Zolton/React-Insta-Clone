@@ -11,6 +11,13 @@ import CommentSection from "./CommentSection";
 //     return <CommentSection comment={comment} />
 //     })}
 //     }
+
+//<div>Post Container rendering</div>
+//{props.post.map(e => {
+//
+//})}
+
+
 // render() {
     
  //   console.log(props.dataPost)
@@ -22,14 +29,18 @@ import CommentSection from "./CommentSection";
 //   test = props.data.map(e=>props.data.comments)
 //   console.log("test is " + test)
 //<CommentSection userComments={props.data.map(e=>e.comments)} />
+
+// {props.post.map(comment => {
+//     return <CommentSection comment={comment} />
+//     })}
 function PostContainer(props) {
+    console.log("post container below" + props.userData)
+    console.log(props.userData)
   return (
     <div>
-
-      <div>Post Container rendering</div>
-      {props.post.map(comment => {
-        return <CommentSection comment={comment} />
-        })}
+       <div> PostContainer Rendering</div>
+    <CommentSection userComments={props.userData.map(e=>e)} />
+    
     </div>
   );
 }
