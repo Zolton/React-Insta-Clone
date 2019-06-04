@@ -23,13 +23,25 @@ console.log(props.userComments)
 //   })}.map(nameText => nameText.text)}
 //.map(nameText => nameText.username)}
 
+
+
+//{props.userComments.map(nameText2 => nameText2.text)}
+//<input 
+      //  type="text"
+       // placeholder="Enter text here"/>
+       console.log("props.usercomments " + props.userComments)
+       console.log(props.userComments)
+
   return (
     
     <div> 
         <div> Comment Section rendering </div>
-        {props.userComments}
-        {props.userComments}
       
+      {props.userComments.username}
+      
+      {props.userComments.text}
+         
+        
     </div>
   )
 }

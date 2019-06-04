@@ -23,9 +23,9 @@ class App extends React.Component {
       <div>App page rendering</div>
 
    
-      {this.state.data.map(puppy => {
+      {this.state.data.map(user => {
  return <PostContainer 
-          userData={puppy} />
+          userData={user} />
   })}
       
       

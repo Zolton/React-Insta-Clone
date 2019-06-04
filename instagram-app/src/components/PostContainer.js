@@ -34,7 +34,7 @@ import CommentSection from "./CommentSection";
 //     })}
 
 // <CommentSection userComments={props.userData.map(e=>e)} />
-
+//<CommentSection userComments={puppies} />
 
 function PostContainer(props) {
   console.log("post container below" + props.userData);
@@ -42,8 +42,8 @@ function PostContainer(props) {
   return (
     <div>
       <div> PostContainer Rendering </div>
-      {props.userData.comments.map(puppies => {
-    return <CommentSection userComments={puppies} />;
+      {props.userData.comments.map(usercomms => {
+    return <CommentSection userComments={usercomms} />
   })}
       
     </div>
