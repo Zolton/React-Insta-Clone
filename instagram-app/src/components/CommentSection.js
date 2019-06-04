@@ -32,13 +32,15 @@ class CommentSection extends React.Component {
       props
     }
   }
-  
+
 render(){
   console.log("this.state.props.userComments.username is " + this.state.props.userComments.username)
   console.log(this.state.props.userComments.username)
-  
+  //console.log("this is props" + props)
+  console.log(this.state.props)
   return (
     <div>
+     
       <div>Username: {this.state.props.userComments.username}</div>
       <div>Comment: {this.state.props.userComments.text}</div>
     </div>

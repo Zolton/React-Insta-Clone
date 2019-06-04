@@ -13,6 +13,7 @@ class App extends React.Component {
     this.setState({data: dummyData});
   }
 
+  // Creates a new dummyData.comment
   addComment = (event) => {
     event.preventDefault();
     const newUserComment = {
@@ -21,7 +22,7 @@ class App extends React.Component {
       text: ""
     };
     this.setState({
-      userData: [...this.state.props.userData.comments, newUserComment],
+      userData: [...this.state.data.comments, newUserComment],
       text: ""})
   }
   
