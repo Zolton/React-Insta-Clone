@@ -5,16 +5,50 @@ import CommentSection from "./CommentSection";
 // Maps thru each object, sending the object.comments array
 // down to Comment section
 
-function PostContainer(props) {
-  console.log("post container below" + props.userData);
-  console.log(props.userData);
+class PostContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      props,
+      newComment: ""
+    }
+  }
+
+  addComment = event => {
+    event.preventDefault();
+    const newComment = {
+     id: Date.now(),
+     username: "test run",
+     text: ""
+   };
+   
+   this.setState({   });
+ }
+      
+render () {
+  //console.log("post container below " + this.state.props.userData);
+  //console.log(this.state.props);
   return (
     <div>
-      {props.userData.comments.map(usercomms => {
+      {this.state.props.userData.comments.map(usercomms => {
         return <CommentSection userComments={usercomms} />;
       })}
+
+      <form>
+
+      <input 
+        type="text" 
+        name="inputField"
+        placeholder="Add a comment..."
+        value={this.state.newComment}
+        //onChange={addComment}
+         />
+
+         </form>
+
     </div>
   );
+}
 }
 
 export default PostContainer;

@@ -29,17 +29,10 @@ class CommentSection extends React.Component {
   constructor (props) {
     super(props);
     this.state={
-      props,
-      newComment: "test"
+      props
     }
   }
-
-  // newComment = event => {
-
-  // }
-
- 
-      
+  
 render(){
   console.log("this.state.props.userComments.username is " + this.state.props.userComments.username)
   console.log(this.state.props.userComments.username)
@@ -48,7 +41,6 @@ render(){
     <div>
       <div>Username: {this.state.props.userComments.username}</div>
       <div>Comment: {this.state.props.userComments.text}</div>
-      
     </div>
   );
 }

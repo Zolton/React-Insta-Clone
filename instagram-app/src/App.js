@@ -3,6 +3,7 @@ import "./App.css";
 import dummyData from "./dummy-data";
 import PostContainer from "./components/PostContainer";
 
+
 class App extends React.Component {
   state = {
     data: [],
@@ -13,23 +14,11 @@ class App extends React.Component {
     this.setState({data: dummyData});
   }
 
-   addCommentFunction = event => {
-     event.preventDefault();
-    //this.setState({newComment: event.target.value})
-    const newComment = {
-      id: Date.now(),
-      
-    }
-  }
+  // creates a container for the new comment, with the 3 fields all comments need,
+  // id, username, and text
 
-  addTodo = (e, item) => {
-    e.preventDefault();
-    const newTodoItem = {
-    task: item,
-    id: Date.now(),
-    completed: false
-    };
-    };
+
+
   render() {
    
   
@@ -37,23 +26,14 @@ class App extends React.Component {
     // its own set of data
     console.log("data below" + this.state.data);
     console.log(this.state.data);
-    //console.log(event.target.value)
+    
     return (
       <div>
         {this.state.data.map(user => {
           return <PostContainer userData={user} />;
         })}
-        <form>
-        <input 
-        type="text" 
-        name="inputField"
-        placeholder="Add a comment..."
-        //value={newComment}
-        onChange={this.addCommentFunction}
-         />
-         </form>
-
       </div>
+      // Input field at bottom of page, 
     );
   }
 }
