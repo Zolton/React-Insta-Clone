@@ -13,6 +13,34 @@ class App extends React.Component {
     this.setState({data: dummyData});
   }
 
+  addComment = (event) => {
+    event.preventDefault();
+    const newUserComment = {
+      id: Date.now(),
+      username: "Cannonball",
+      text: ""
+    };
+    this.setState({
+      userData: [...this.state.props.userData.comments, newUserComment],
+      text: ""})
+  }
+  
+
+  // addTask = e => {
+  //   e.preventDefault();
+  //   const newTask = {
+  //     phrase: this.state.taskInput,
+  //     id: Date.now(),
+  //     completed: false
+  //   };
+   
+  //   this.setState({
+  //     userData: [...this.state.tasks, newTask],
+  //     taskInput: ""
+  //   });
+  // };
+
+
   render() {
    
   
@@ -24,7 +52,7 @@ class App extends React.Component {
     return (
       <div>
         {this.state.data.map(user => {
-          return <PostContainer userData={user} />;
+          return <PostContainer userData={user} addComment={this.addComment}/>;
         })}
       </div>
     );

@@ -47,6 +47,7 @@ render () {
         placeholder="Add a comment..."
         value={this.state.newComment}
         onChange={this.changeHandler}
+        onSubmit={addComment}
          />
 
          </form>
