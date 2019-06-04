@@ -5,19 +5,39 @@ import PostContainer from "./components/PostContainer";
 
 class App extends React.Component {
   state = {
-    data: []
+    data: [],
+    newComment: ""
   };
 
   componentDidMount() {
     this.setState({data: dummyData});
   }
 
+   addCommentFunction = event => {
+     event.preventDefault();
+    //this.setState({newComment: event.target.value})
+    const newComment = {
+      id: Date.now(),
+      
+    }
+  }
+
+  addTodo = (e, item) => {
+    e.preventDefault();
+    const newTodoItem = {
+    task: item,
+    id: Date.now(),
+    completed: false
+    };
+    };
   render() {
+   
   
     // maps thru dummData, sends each object (3) to PostContainer as
     // its own set of data
     console.log("data below" + this.state.data);
     console.log(this.state.data);
+    //console.log(event.target.value)
     return (
       <div>
         {this.state.data.map(user => {
@@ -26,9 +46,10 @@ class App extends React.Component {
         <form>
         <input 
         type="text" 
+        name="inputField"
         placeholder="Add a comment..."
-     //   value={this.state.newComment}
-     //   onChange={addCommentFunction}
+        //value={newComment}
+        onChange={this.addCommentFunction}
          />
          </form>
 

@@ -29,7 +29,8 @@ class CommentSection extends React.Component {
   constructor (props) {
     super(props);
     this.state={
-      props
+      props,
+      newComment: "test"
     }
   }
 
@@ -37,17 +38,17 @@ class CommentSection extends React.Component {
 
   // }
 
-  // addCommentFunction = event => {
-  //   this.setState({newComment: event.target.value})
-  // }
+ 
       
 render(){
   console.log("this.state.props.userComments.username is " + this.state.props.userComments.username)
   console.log(this.state.props.userComments.username)
+  
   return (
     <div>
       <div>Username: {this.state.props.userComments.username}</div>
       <div>Comment: {this.state.props.userComments.text}</div>
+      
     </div>
   );
 }
