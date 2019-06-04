@@ -33,10 +33,13 @@ class CommentSection extends React.Component {
     }
   }
 
-  // addNewComment = event => {
-  //   this.setState({})
+  // newComment = event => {
+
   // }
 
+  // addCommentFunction = event => {
+  //   this.setState({newComment: event.target.value})
+  // }
       
 render(){
   console.log("this.state.props.userComments.username is " + this.state.props.userComments.username)

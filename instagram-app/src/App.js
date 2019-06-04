@@ -23,7 +23,15 @@ class App extends React.Component {
         {this.state.data.map(user => {
           return <PostContainer userData={user} />;
         })}
-        <input type="text" placeholder="Enter text here" />
+        <form>
+        <input 
+        type="text" 
+        placeholder="Add a comment..."
+     //   value={this.state.newComment}
+     //   onChange={addCommentFunction}
+         />
+         </form>
+
       </div>
     );
   }
