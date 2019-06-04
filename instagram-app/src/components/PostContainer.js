@@ -41,11 +41,9 @@ function PostContainer(props) {
   console.log(props.userData);
   return (
     <div>
-      <div> PostContainer Rendering </div>
       {props.userData.comments.map(usercomms => {
-    return <CommentSection userComments={usercomms} />
-  })}
-      
+        return <CommentSection userComments={usercomms} />;
+      })}
     </div>
   );
 }
