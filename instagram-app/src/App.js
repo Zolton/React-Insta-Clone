@@ -6,8 +6,12 @@ import PostContainer from "./components/PostContainer";
 // <PostContainer userData={this.state.data.map(e=>e.comments)} />
 class App extends React.Component {
   state = {
-    data: dummyData
+    data: []
   };
+
+  componentDidMount() {
+    this.setState({data: dummyData});
+  }
 
   render() {
     // Just sends the dummyData out to PostContainer
@@ -21,6 +25,7 @@ class App extends React.Component {
         {this.state.data.map(user => {
           return <PostContainer userData={user} />;
         })}
+        <input type="text" placeholder="Enter text here" />
       </div>
     );
   }

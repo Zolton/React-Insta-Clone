@@ -16,7 +16,7 @@ function CommentSection(props) {
   //   console.log(props.userComments[0].text)
   //   console.log(props.userComments.map(e=>e.text));
   console.log("Comment section below" + props.userComments);
-  console.log(props.userComments);
+  console.log(props.userComments.username);
   // {props.userComments.map(nameText => {
   //     return nameText.username
   //   })}.map(nameText => nameText.text)}
@@ -32,9 +32,8 @@ function CommentSection(props) {
   return (
     <div>
       <div>Username: {props.userComments.username}</div>
-
       <div>Comment: {props.userComments.text}</div>
-      <input type="text" placeholder="Enter text here" />
+      
     </div>
   );
 }
