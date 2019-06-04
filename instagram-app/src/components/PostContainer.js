@@ -13,17 +13,22 @@ class PostContainer extends React.Component {
       newComment: ""
     }
   }
-
-  addComment = event => {
-    event.preventDefault();
-    const newComment = {
-     id: Date.now(),
-     username: "test run",
-     text: ""
-   };
+//Why does this.state.newComment and the input field name need to be the same?
+  changeHandler = event => {
+    console.log(event.target.value);
+    this.setState({[event.target.name]:event.target.value})
+  }
+ 
+//   addComment = event => {
+//     event.preventDefault();
+//     const newComment = {
+//      id: Date.now(),
+//      username: "test run",
+//      text: ""
+//    };
    
-   this.setState({   });
- }
+//    this.setState({   });
+//  }
       
 render () {
   //console.log("post container below " + this.state.props.userData);
@@ -38,10 +43,10 @@ render () {
 
       <input 
         type="text" 
-        name="inputField"
+        name="newComment"
         placeholder="Add a comment..."
         value={this.state.newComment}
-        //onChange={addComment}
+        onChange={this.changeHandler}
          />
 
          </form>

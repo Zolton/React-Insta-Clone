@@ -6,23 +6,17 @@ import PostContainer from "./components/PostContainer";
 
 class App extends React.Component {
   state = {
-    data: [],
-    newComment: ""
+    data: []
   };
 
   componentDidMount() {
     this.setState({data: dummyData});
   }
 
-  // creates a container for the new comment, with the 3 fields all comments need,
-  // id, username, and text
-
-
-
   render() {
    
   
-    // maps thru dummData, sends each object (3) to PostContainer as
+    // maps thru dummyData, sends each object (3) to PostContainer as
     // its own set of data
     console.log("data below" + this.state.data);
     console.log(this.state.data);
@@ -33,7 +27,6 @@ class App extends React.Component {
           return <PostContainer userData={user} />;
         })}
       </div>
-      // Input field at bottom of page, 
     );
   }
 }
