@@ -5,7 +5,7 @@
 // Maps thru each object, sending the object.comments array
 // down to Comment section
 
-/*
+
 
 class PostContainer extends React.Component {
   
@@ -19,6 +19,7 @@ class PostContainer extends React.Component {
       // It's so BONKERS how much common sense this is!
 
       //this.props works because constructore is auto included! ES6 goodness
+      
       <div className="post-container">
         {this.props.filteredPosts.length === 0 ? this.props.data.map(post => 
         <>
@@ -68,100 +69,58 @@ class PostContainer extends React.Component {
       // grab comments section, pass it along as an object to comment section!
       //hell, add a timestamp too!  So easy!
 
-      // <div>
-      //   <span>
-      //     /* displays user avatar next to username*/
-      //     <img src={this.state.props.userData.thumbnailUrl} />
-      //     {this.state.props.userData.username}
-      //   </span>
-      //   <div>
-      //     {/* displays big photo */}
-      //     <img src={this.state.props.userData.imageUrl} />
-      //   </div>
-      //   {/* Shows Likes */}
-      //   <div>Likes: {this.state.props.userData.likes} </div>
-      //   {/* Passes down dummyData.user.comment array down to CommentSection*/}
-      //   {this.state.props.userData.comments.map(usercomms => {
-      //     return <CommentSection userComments={usercomms} />;
-      //   })}
 
-      //   <form onSubmit={this.submit}>
-      //     <input
-      //       type="text"
-      //       name="newComment"
-      //       placeholder="Add a comment..."
-      //       value={this.state.newComment}
-      //       onChange={this.changeHandler}
-      //     />
-      //     {/* button triggered by onSubmit on form */}
-      //     <button>Add new Comment</button>
-      //   </form>
-      // </div>
- 
 //export default PostContainer;
 
-
-
-
-import React, {Component} from 'react';
-import CommentSection from '../CommentSection/CommentSection'
+import React, { Component } from "react";
+import CommentSection from "../CommentSection/CommentSection";
 
 class PostContainer extends Component {
-   
-    render() { 
-        return ( 
-            <div className="post-container">
-                {this.props.filteredPosts.length === 0 ? this.props.data.map(post => {
-                    return (
-                        <>
+  render() {
+    return (
+      <div className="post-container">
+        {this.props.filteredPosts.length === 0
+          ? this.props.data.map(post => {
+              return (
+                <>
+                  <header>
+                    <img src={post.thumbnailUrl} alt="thumbnail" />
+                    <h3>{post.username}</h3>
+                  </header>
 
-                        <header>
-                            <img src={post.thumbnailUrl} alt="thumbnail"/>
-                            <h3>{post.username}</h3>
-                        </header>
+                  <img src={post.imageUrl} alt={post.id} />
 
-                        <img src={post.imageUrl} alt={post.id}/>
+                  <section className="likebar">{post.likes} likes</section>
 
-                        <section className="likebar">
-                            {post.likes} likes
-                        </section>
+                  <CommentSection
+                    comments={post.comments}
+                    timestamp={post.timestamp}
+                  />
+                </>
+              );
+            })
+          : this.props.filteredPosts.map(post => {
+              return (
+                <>
+                  <header>
+                    <img src={post.thumbnailUrl} alt="thumbnail" />
+                    <h3>{post.username}</h3>
+                  </header>
 
-                        <CommentSection 
-                            comments={post.comments}
-                            timestamp={post.timestamp}
-                        />
+                  <img src={post.imageUrl} alt={post.id} />
 
-                        </>
-                    )
-                }) : this.props.filteredPosts.map(post => {
-                    return (
-                        <>
+                  <section className="likebar">{post.likes} likes</section>
 
-                        <header>
-                            <img src={post.thumbnailUrl} alt="thumbnail"/>
-                            <h3>{post.username}</h3>
-                        </header>
-
-                        <img src={post.imageUrl} alt={post.id}/>
-
-                        <section className="likebar">
-                            {post.likes} likes
-                        </section>
-
-                        <CommentSection 
-                            comments={post.comments}
-                            timestamp={post.timestamp}
-                        />
-
-                        </>
-                    ) }
-                )
-                }
-        </div>
-    )
-}
+                  <CommentSection
+                    comments={post.comments}
+                    timestamp={post.timestamp}
+                  />
+                </>
+              );
+            })}
+      </div>
+    );
+  }
 }
 
- 
 export default PostContainer;
-

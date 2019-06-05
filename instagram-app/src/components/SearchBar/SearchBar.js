@@ -14,10 +14,11 @@ class SearchBar extends React.Component {
 }
 
 // lets jsut make it search usernames - totally arbitrary, but a decision needs to be made to start at
-//better to keep dat aon app, bc once searchbar is altered, it'll make post container re-render - search bar searches thru post containers - so better to put it on the app that'll be rendering the postcontainers
+//better to keep data on app, bc once searchbar is altered, it'll make post container re-render - search bar searches thru post containers - 
+// so better to put it on the app that'll be rendering the postcontainers
 //if there's something going on between components, go to the parent
 
-//when it hcanges, call changeHandler from props
+//when it changes, call changeHandler from props
 
 //intakes new data, spreads to state search in app.js
 
