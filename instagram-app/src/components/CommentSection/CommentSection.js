@@ -45,10 +45,31 @@ addNewComment = e => {
   }
   //the abvoe just set the template, now to update and push it in
   this.setState({
-    comments: [...this.state.comments, newComment], newComment: ""
+    comments: [...this.state.comments, newComment], 
+    newComment: ""
     //build the new array
     //newComment comes from const above, not the state!
     //first newCOmment is const, the one after comment is state newComment that we're trying to reset
+  
+    //setting state - saying, alrright state, for comments, what I wanna make is a new array - the []
+    //and inside that new array, put in the previous array - this.state.comments, just smash it in there via the ...
+    //just push it all in there
+    //peeling back the shell and pouring it all in
+    // then the comma because we want anotehr object
+    //the ... changes from dumping the comment array, to whats IN THE ARRAY -the objects in the array,
+    //and that comma says, I wanna add newComment, the const 
+
+    //the second newComment -0 after spreading in the newComment to the state, saying wanna add new comment to State
+    //newCOmment on state is a placeholder for the data before it's updated.  once its updated via setstate and added to the array, just blank out the placeholder
+    //resetting it back to zero
+    //if you take it out, 
+    //state is a memory holder, newCOmment is a placeholder for the input field
+    //newCOmment "" is to just collect what the user typoes
+    //you're adding into the comments
+    //newCOmment in the array is what's added to state, newCOmment outside just blanks - take it out, and the users typed comment wouldn't clear after they hit enter -take it out and try!
+    //goes from input field to state, then to State, then pushed into the new array, then second enwComment resets the input field to blank
+    // 
+  
   })
 }
 
