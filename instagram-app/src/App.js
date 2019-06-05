@@ -13,27 +13,27 @@ class App extends React.Component {
   }
 
   // Creates a new dummyData.comment
-  addComment = event => {
-    event.preventDefault();
-    const newUserComment = {
-      id: Date.now(),
-      username: "Cannonball",
-      text: ""
-    };
-    this.setState({
-      userData: [...this.state.data.comments, newUserComment],
-      text: ""
-    });
-  };
+  // No idea how its working beyond creating a template
+  // addComment = event => {
+  //   event.preventDefault();
+  //   const newUserComment = {
+  //     id: Date.now(),
+  //     username: "Cannonball",
+  //     text: ""
+  //   };
+  //   this.setState({
+  //     userData: [...this.state.data.comments, newUserComment],
+  //     text: ""
+  //   });
+  // };
 
   render() {
     // maps thru dummyData, sends each object (3) to PostContainer as
     // its own set of data
-    console.log("data below" + this.state.data);
-    console.log(this.state.data);
 
     return (
       <div>
+        
         {this.state.data.map(user => {
           return <PostContainer userData={user} addComment={this.addComment} />;
         })}

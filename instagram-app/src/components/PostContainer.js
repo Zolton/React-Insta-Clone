@@ -16,35 +16,37 @@ class PostContainer extends React.Component {
 
   //Why does this.state.newComment and the input field name need to be the same?
   changeHandler = event => {
-    console.log(event.target.value);
+    //console.log(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  // No idea how this is working or if it'll work at all
+ // No idea how this is working
+ // theory: fires on submit, should add value to form
   submit = event => {
     this.state.props.addComment(event, this.state.props);
     this.setState({ newComment: "" });
   };
 
   render() {
-    //console.log("post container below " + this.state.props.userData);
-    //console.log(this.state.props);
-    console.log("this is img " + this.state.props.userData.thumbnailUrl);
-    console.log(this.state.props.userData.thumbnailUrl);
+  
     return (
       <div>
         <span>
+          {/* displays user avatar next to username*/}
           <img src={this.state.props.userData.thumbnailUrl} />
           {this.state.props.userData.username}
         </span>
         <div>
+          {/* displays big photo */}
           <img src={this.state.props.userData.imageUrl} />
         </div>
-        <div>Likes: {this.state.props.userData.likes}</div>
+        {/* Shows Likes */}
+        <div>Likes: {this.state.props.userData.likes} </div>
+        {/* Passes down dummyData.user.comment array down to CommentSection*/}
         {this.state.props.userData.comments.map(usercomms => {
           return <CommentSection userComments={usercomms} />;
         })}
-
+      
         <form onSubmit={this.submit}>
           <input
             type="text"
@@ -53,6 +55,7 @@ class PostContainer extends React.Component {
             value={this.state.newComment}
             onChange={this.changeHandler}
           />
+          {/* button triggered by onSubmit on form */}
           <button>Add new Comment</button>
         </form>
       </div>
