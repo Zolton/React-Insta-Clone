@@ -1,6 +1,6 @@
 import React from "react";
-import App from "../App";
-import CommentSection from "./CommentSection";
+import App from "../../App";
+import CommentSection from "../CommentSection/CommentSection"
 
 // Maps thru each object, sending the object.comments array
 // down to Comment section
@@ -14,18 +14,20 @@ class PostContainer extends React.Component {
   }
 
   //Why does this.state.newComment and the input field name need to be the same?
-  changeHandler = event => {
-    //console.log(event.target.value);
-    this.setState({ [event.target.name]: event.target.value });
-  };
+
+  // changeHandler = event => {
+  //   //console.log(event.target.value);
+  //   this.setState({ [event.target.name]: event.target.value });
+  // };
 
  // No idea how this is working
  // theory: fires on submit, should add value to form
-  submit = event => {
-    event.preventDefault();
-    this.state.props.addComment(event, this.state.props);
-    this.setState({ newComment: "" });
-  };
+
+  // submit = event => {
+  //   event.preventDefault();
+  //   this.state.props.addComment(event, this.state.props);
+  //   this.setState({ newComment: "" });
+  // };
 
   render() {
   

@@ -1,6 +1,6 @@
 import React from "react";
-import App from "../App";
-import PostContainer from "./PostContainer";
+import App from "../../App";
+import PostContainer from "../PostContainer/PostContainer";
 
 // function CommentSection(props) {
 
