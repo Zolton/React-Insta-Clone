@@ -10,8 +10,8 @@ class PostContainer extends Component {
       // map over everything, return "post" for each object - so we can
       // just pull off surface level info right here!
       // It's so BONKERS how much common sense this is!
-
       //this.props works because constructore is auto included! ES6 goodness
+      
       <div className="post-container">
         {this.props.filteredPosts.length === 0
           ? this.props.data.map(post => {
@@ -34,6 +34,7 @@ class PostContainer extends Component {
               );
             })
           : this.props.filteredPosts.map(post => {
+              
               return (
                 <>
                   <header>
