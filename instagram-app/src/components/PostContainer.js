@@ -9,8 +9,7 @@ class PostContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      props,
-      newComment: ""
+      props
     };
   }
 
@@ -23,6 +22,7 @@ class PostContainer extends React.Component {
  // No idea how this is working
  // theory: fires on submit, should add value to form
   submit = event => {
+    event.preventDefault();
     this.state.props.addComment(event, this.state.props);
     this.setState({ newComment: "" });
   };
