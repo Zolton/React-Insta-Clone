@@ -1,9 +1,8 @@
 import React from "react"
-import "./App.css";
 import dummyData from "./dummy-data";
-import PostContainer from "./components/PostContainer/PostContainer";
-import SearchBar from "./components/SearchBar/SearchBar"
-import withAuthenticate from "./components/authentication/withAuthenticate"
+import PostContainer from "../PostContainer/PostContainer";
+import SearchBar from "../SearchBar/SearchBar"
+
 
 
 class PostsPage extends React.Component {
@@ -21,7 +20,7 @@ class PostsPage extends React.Component {
         this.setState({ data: dummyData });
       }
 
-      searchfilter = e => {
+      searchFilter = e => {
         const filtered = this.state.data.filter(post => post.username.toLowerCase().includes(e.target.value.toLowerCase()))
     //check if username is equal to value, toLowercase is just in case of aberations innames
       this.setState({ filteredPosts: filtered})
@@ -53,6 +52,8 @@ class PostsPage extends React.Component {
             searchFilter={this.searchFilter} 
             />
         </div>
+        )
+}
 }
 
 export default PostsPage
