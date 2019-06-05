@@ -41,8 +41,9 @@ render(){
   return (
     <div>
      
-      <div>Username: {this.state.props.userComments.username}</div>
-      <div>Comment: {this.state.props.userComments.text}</div>
+      <span><strong>{this.state.props.userComments.username}: </strong>
+      {this.state.props.userComments.text}
+      </span>
     </div>
   );
 }
