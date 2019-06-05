@@ -3,83 +3,94 @@ import React from "react";
 class CommentSection extends React.Component {
   //boom! constructor gone!
   state = {
-comments: this.props.comments,
-newComment: ""
-  }
+    comments: this.props.comments,
+    newComment: ""
+  };
 
-/* 
+  /* 
 
-addNewComment called on submit.  Says,  "take a look in value field of input - whatever it is, stick it into this.state.newComment above"
-text on const = this.state.newComment, so that gets pulled in when addnewCommentruns
-then setState takes all existing this.state.comments, puts it into a new array, and adds this.state.newComment as a new array item at the end
-the second newComment: "" just resets the value field of hte input box back to zero for the next comment
-and that's how the addnewcomment/submit button works
+addNewComment function called on submit.
+
+nutshell: "value" field of input box - what user types into - is set to send all
+the user typing to this.state above, as this.state.comment.  addNewComment function
+just grabs whatever's in this.state.newComment, shoves it into text in the template
+ and then this.setState below that shoves the template into the comment's array
+ at the end (newCommentAdded), the second newComment just resets the text field to zero
+
 */
 
-addNewComment = e => {
-  e.preventDefault();
-  //don't refresh page^
-  //now declare new comment format
-  //NOT the same newComment as above or name, can be different!
-  const newComment = {
-    username: "Cannonball Run",
-    text: this.state.newComment
-    //text here is pointing to the newCOmment variable from state
-  }
-  //the abvoe just set the template, now to update and push it in
+  addNewComment = e => {
+    e.preventDefault();
+    //says "don't refresh page^"
+    //now declare new comment format
+    //NOT the same newComment as above or name, can be different!
+    const newCommentAddedByUser = {
+      username: "Cannonball Run",
+      text: this.state.newComment
+    };
+    //the abvoe just sets up the template, now to update and push it in
 
-  this.setState({
-    comments: 
-    [...this.state.comments, newComment], 
-    newComment: ""
-   /* 
-   build the new array
-    newComment in array comes from const above, not the state!
-    first newComment is const, the one after comment is state newComment that we're trying to reset
+    this.setState({
+      comments: [...this.state.comments, newCommentAddedByUser],
+      newComment: ""
+      /* 
+    [] = build a new array
+          newComment in array comes from const above, not the state!
+
+    first newComment is const from above, the one after comment is state 
+    newComment that we're trying to reset
   
-    setting state - saying, alrright state, for comments, what I wanna make is a new array - the []
-    and inside that new array, put in the previous array - this.state.comments, just smash it in there via the ...
-    just push it all in there
-    peeling back the shell and pouring it all in
-    then the comma because we want another object added on
-    the ... changes from dumping the comment array, to whats IN THE ARRAY - the objects in the array,
-    and that comma says, I wanna add newComment, the const from above
+    this.setState says alright this.state:
 
-    the second newComment - after spreading in the newComment to the state, saying wanna add new comment to State
-    newComment on state is a placeholder for the data before it's updated.  once its updated via setstate and added to the array, 
-    just blank out the placeholder
-    resetting it back to zero
-    if you take it out, 
-    state is a memory holder, newComment is a placeholder for the input field
-    newComment "" is to just collect what the user types
-    you're adding into the comments
-    newComment in the array is what's added to state, newComment outside just blanks - take it out, and the users typed comment 
-    wouldn't clear after they hit enter -take it out and try!
-    goes from input field to state, then to setState, then pushed into the new array, then second newComment resets the input field to blank
+    1) I wanna make a new array for this.state.comments - that's what the [] is for
     
-    */
+    2) and inside that new array, put in the previous array - this.state.comments,
+      which is set to this.props.comments - the existing array!! 
+        - the ... **separates out** each item in the old array so they're inserted one 
+          by one into the new array, instead of just dumped in as a single object!
+        - Difference b/t dumping the array to dumping what's **IN** the array - that's
+          what the ... does
+        - peeling back the shell and pouring it all in
+    
+    3) then the comma because we want another object added on - the const from above,
+        newCommentAddedByUser - added on as the last/latest item in the array
   
-  })
-}
+    4) the second newComment resets the text field to blank, ""
+      - delete it - try it!  The user input persists after hitting Enter and 
+        needs to be deleted manually.  Very annoying for users!
+      - why? State is a memory holder, and newComment is a placeholder - it'll 
+        retain what the user puts in unless we manually blank it
+     - after spreading in the newComment to the state, 
+        saying wanna add new comment to State
+
+    Process in a nutshell: Input from user goes from the input value field, 
+      to state, then to setState, then it's pushed into the new array, then 
+      second newComment resets the input field to blank
+   
+    */
+    });
+  };
 
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
-      // saying "hold this value" - name is unique, so each input field is tracked, don't need multiple change handlers, just one!
-      //brakcets to understand chain of command
-      //referencing a variable, that could have spaces!
-      //brackets protect against interpreting as a literal
-  
-// just gonna add new comments to existing array
+    });
+  };
+
+  // saying "hold this value" - name is unique, so each input field is tracked 
+  //separately, don't need multiple change handlers, just one!
+  //brakcets to understand chain of command
+  //referencing a variable, that could have spaces!
+  //brackets protect against interpreting as a literal
+
+  // just gonna add new comments to existing array
   render() {
     //Just stick the hot JSX right into the tags, format as you go
     return (
       // comment is comment object, index is what we'll use for the key/id
-      //gonna jsut add the new comments right into the existing array, then yank them out
+      //gonna jsut add the new comments right into the existing array, 
+      //then yank them out
       <div>
-        
         {this.state.comments.map(comment => {
           return (
             <>
@@ -89,28 +100,26 @@ addNewComment = e => {
           );
         })}
         <p className="timestamp">{this.props.timestamp}</p>
-        
+
         <form onSubmit={this.addNewComment}>
-
-        <input 
-        type="text" 
-        placeholder="add a comment" 
-        name="newComment"
-        value={this.state.newComment}
-        onChange={this.changeHandler}
-        />
-
+          <input
+            type="text"
+            placeholder="add a comment"
+            name="newComment"
+            value={this.state.newComment}
+            onChange={this.changeHandler}
+          />
         </form>
-        
       </div>
       /*
       this.props needed for timestamp bc we're outside the map, just
       pulling off surface level object stuff
+
       yes, name= must be same as state created variable
-      its just a variable!
+        - its just a variable!
       e.target.name is what's setting the state, so it needs to match name
+      of this.state above
 */
-    
     );
   }
 }
