@@ -2,6 +2,20 @@ import React, { Component } from "react";
 import CommentSection from "../CommentSection/CommentSection";
 
 class PostContainer extends Component {
+  
+  // increaseLikes = e => {
+  //   preventDafault();
+  //   return ({post.likes + 1}
+  // }
+
+  state = {
+    count: 0
+  }
+
+  increase = (prevState, count) => {
+    this.setState({count: prevState + 1 })
+  }
+
   render() {
     return (
       //doesn't matter if you map in app or here - style, baby!
@@ -14,6 +28,7 @@ class PostContainer extends Component {
 
       <div className="post-container">
         {this.props.data.map(post => {
+         
           return (
             <>
               <header>
@@ -23,7 +38,7 @@ class PostContainer extends Component {
 
               <img src={post.imageUrl} alt={post.id} />
 
-              <section className="likebar">{post.likes} likes</section>
+              <section className="likebar" onClick={this.increase}>{post.likes + this.state.count} likes</section>
 
               <CommentSection
                 comments={post.comments}
