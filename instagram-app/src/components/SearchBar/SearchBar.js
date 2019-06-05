@@ -1,17 +1,20 @@
-import React from "react";
+import React, {Component} from 'react';
 
-class SearchBar extends React.Component {
-  render() {
-    return (
-      <input
-        name={this.props.newSearch}
-        onChange={this.props.searchFilter}
-        placeholder="type your search here..."
-        type="text"
-      />
-    );
-  }
+class SearchBar extends Component {
+    render() { 
+        return ( 
+            <input
+                name="search"
+                onChange={this.props.searchFilter}
+                placeholder="search..."
+                type="text"
+                // value={this.props.newSearch}
+            />
+        );
+    }
 }
+ 
+export default SearchBar;
 
 // lets jsut make it search usernames - totally arbitrary, but a decision needs to be made to start at
 //better to keep data on app, bc once searchbar is altered, it'll make post container re-render - search bar searches thru post containers - 
@@ -22,4 +25,4 @@ class SearchBar extends React.Component {
 
 //intakes new data, spreads to state search in app.js
 
-export default SearchBar;
+

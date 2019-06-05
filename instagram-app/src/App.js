@@ -5,9 +5,8 @@ import PostContainer from "./components/PostContainer/PostContainer";
 import SearchBar from "./components/SearchBar/SearchBar"
 
 class App extends React.Component {
-  state = {
-    data:[],
-    search: "",
+  state = { 
+    data: [],
     filteredPosts: []
   };
  
@@ -20,13 +19,13 @@ class App extends React.Component {
   }
 
   searchfilter = e => {
-      const filtered = this.state.data.filter(post=>post.username.toLowerCase().includes(e.target.value.toLowerCase()))
+    const filtered = this.state.data.filter(post => post.username.toLowerCase().includes(e.target.value.toLowerCase()))
 //check if username is equal to value, toLowercase is just in case of aberations innames
-    this.setState({filteredPosts: filtered})
+  this.setState({ filteredPosts: filtered})
     //when a hit results, send it to the state above, filteredPosts
-
-
   }
+
+ 
   // const newFilter = this.state.data.filter(post => 
     //   post.username === this.state.search
     // )
@@ -41,21 +40,14 @@ class App extends React.Component {
     // its own set of data
 
     return (
-      <div>
+      <div className="App">
         <SearchBar 
-        changeHandler={this.props.changeHandler} 
-        newSearch={this.state.search}
-        searchfilter={this.searchFilter}
+          newSearch={this.state.search}
+          searchFilter={this.searchFilter}
         />
-        <PostContainer 
-        data={this.state.data} 
-        filteredPosts = {this.state.filteredPosts}
-        searchFilter={this.searchFilter}
-        />
-        {/* {this.state.data.map(user => {
-          return <PostContainer data={user} addComment={this.addComment} />;
-        })} */}
-      </div>
+
+        <PostContainer data={this.state.data} filteredPosts={this.state.filteredPosts} searchFilter={this.searchFilter} />
+    </div>
     );
   }
 }
