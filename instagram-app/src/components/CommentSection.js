@@ -26,27 +26,30 @@ import PostContainer from "./PostContainer";
 // export default CommentSection;
 
 class CommentSection extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       props
-    }
+    };
   }
 
-render(){
-  console.log("this.state.props.userComments.username is " + this.state.props.userComments.username)
-  console.log(this.state.props.userComments.username)
-  //console.log("this is props" + props)
-  console.log(this.state.props)
-  return (
-    <div>
-     
-      <span><strong>{this.state.props.userComments.username}: </strong>
-      {this.state.props.userComments.text}
-      </span>
-    </div>
-  );
-}
+  render() {
+    console.log(
+      "this.state.props.userComments.username is " +
+        this.state.props.userComments.username
+    );
+    console.log(this.state.props.userComments.username);
+    //console.log("this is props" + props)
+    console.log(this.state.props);
+    return (
+      <div>
+        <span>
+          <strong>{this.state.props.userComments.username}: </strong>
+          {this.state.props.userComments.text}
+        </span>
+      </div>
+    );
   }
+}
 
 export default CommentSection;

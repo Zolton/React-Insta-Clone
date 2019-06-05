@@ -34,10 +34,12 @@ class PostContainer extends React.Component {
     return (
       <div>
         <span>
-            <img src={this.state.props.userData.thumbnailUrl} />
-            {this.state.props.userData.username}
+          <img src={this.state.props.userData.thumbnailUrl} />
+          {this.state.props.userData.username}
         </span>
-        <div><img src={this.state.props.userData.imageUrl} /></div>
+        <div>
+          <img src={this.state.props.userData.imageUrl} />
+        </div>
         <div>Likes: {this.state.props.userData.likes}</div>
         {this.state.props.userData.comments.map(usercomms => {
           return <CommentSection userComments={usercomms} />;

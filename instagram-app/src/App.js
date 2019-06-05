@@ -3,18 +3,17 @@ import "./App.css";
 import dummyData from "./dummy-data";
 import PostContainer from "./components/PostContainer";
 
-
 class App extends React.Component {
   state = {
     data: []
   };
 
   componentDidMount() {
-    this.setState({data: dummyData});
+    this.setState({ data: dummyData });
   }
 
   // Creates a new dummyData.comment
-  addComment = (event) => {
+  addComment = event => {
     event.preventDefault();
     const newUserComment = {
       id: Date.now(),
@@ -23,19 +22,16 @@ class App extends React.Component {
     };
     this.setState({
       userData: [...this.state.data.comments, newUserComment],
-      text: ""})
-  }
-  
-
+      text: ""
+    });
+  };
 
   render() {
-   
-  
     // maps thru dummyData, sends each object (3) to PostContainer as
     // its own set of data
     console.log("data below" + this.state.data);
     console.log(this.state.data);
-    
+
     return (
       <div>
         {this.state.data.map(user => {
