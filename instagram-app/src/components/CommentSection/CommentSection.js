@@ -76,12 +76,13 @@ addNewComment = e => {
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
       // saying "hold this value" - name is unique, so each input field is tracked, don't need multiple change handlers, just one!
       //brakcets to understand chain of command
       //referencing a variable, that could have spaces!
       //brackets protect against interpreting as a literal
-    })
-  }
+   
 
 // just gonna add new comments to existing array
   render() {

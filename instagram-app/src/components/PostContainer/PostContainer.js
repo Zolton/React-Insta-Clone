@@ -6,8 +6,7 @@ import CommentSection from "../CommentSection/CommentSection";
 // down to Comment section
 
 class PostContainer extends React.Component {
-
-
+  
   render() {
     return (
       //doesn't matter if you map in app or here - style, baby!
@@ -19,7 +18,27 @@ class PostContainer extends React.Component {
 
       //this.props works because constructore is auto included! ES6 goodness
       <div className="post-container">
-      {this.props.data.map(post => {
+        {this.props.filteredPosts.length === 0 ? this.props.data.map(post => 
+        <>
+              
+        <header>
+            <img src={post.thumbnailUrl} alt="thumbnail"/>
+            <h3>{post.username}</h3>
+        </header>
+
+        <img src={post.imageUrl} alt={post.id}/>
+
+        <section className="likebar">
+            {post.likes} likes
+        </section>
+
+        <CommentSection 
+            comments={post.comments}
+            timestamp={post.timestamp}
+        />
+
+        </>
+        )} : {this.props.data.map(post => {
           return (
               <>
               
@@ -42,6 +61,7 @@ class PostContainer extends React.Component {
               </>
           )
       })}
+    
   </div>
       // grab comments section, pass it along as an object to comment section!
       //hell, add a timestamp too!  So easy!
