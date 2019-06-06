@@ -12,8 +12,8 @@ class PostContainer extends Component {
     count: 0
   }
 
-  increase = (prevState, count) => {
-    this.setState({count: prevState + 1 })
+  increase = (count) => {
+    this.setState({count: count+1 })
   }
 
   render() {

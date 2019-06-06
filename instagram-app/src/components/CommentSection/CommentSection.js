@@ -1,4 +1,6 @@
 import React from "react";
+import {Button} from "../Styling"
+import styled, { css } from 'styled-components';
 
 class CommentSection extends React.Component {
   //boom! constructor gone!
@@ -93,6 +95,7 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
             <>
               <h3>{comment.username}</h3>
               <p>{comment.text}</p>
+              <Button>Hello</Button>
             </>
           );
         })}
