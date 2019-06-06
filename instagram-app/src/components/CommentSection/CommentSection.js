@@ -30,15 +30,14 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
     };
     //the abvoe just sets up the template, now to update and push it in
 
-    this.setState({
-      comments: [...this.state.comments, newCommentAddedByUser],
-      newComment: ""
+    this.setState({comments: [...this.state.comments, newCommentAddedByUser], newComment: ""
+    });
+  };
+
       /* 
     [] = build a new array
-          newComment in array comes from const above, not the state!
-
-    first newComment is const from above, the one after comment is state 
-    newComment that we're trying to reset
+        - Note the setState(comments: ...[])- we're setting the old array of 
+        comments into the new array of comments, then just adding newCommentAddedByUser
   
     this.setState says alright this.state:
 
@@ -68,9 +67,7 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
       second newComment resets the input field to blank
    
     */
-    });
-  };
-
+    
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
