@@ -29,11 +29,45 @@ font-family: sans-serif;
 ${props => (props.type === "success" ? `background: red` : null)}
 `;
 
-// export const SearchInsta = styled.h5`
-// display: flex;
-// flex-flow: row nowrap;
-// justify-content: flex-end;
-// font-size: 25px;
-// margin-right: 20px;
-// ${props => (props.type === "success" ? `background: blue` : null)}
-// `;
+export const UserHeader = styled.header`
+display: flex;
+flex-flow: row nowrap;
+max-width: 650px;
+margin: 0 auto;
+justify-content: flex-start;
+font-family: sans-serif;
+`;
+
+export const UserImg = styled.img`
+height: 6%;
+width: 6%;
+overflow: hidden;
+border-radius: 50%;
+`;
+
+export const MainPost = styled.img`
+${props => (props.type === "main" ? `border: 2px solid blue` : null)}
+`;
+
+export const CommentStyling = styled.div`
+display: flex;
+flex-flow: column wrap;
+max-width: 650px;
+margin: 0 auto;
+justify-content: flex-start;
+font-family: sans-serif;
+${props => (props.type === "time" ? `color: gray` : null)}
+`;
+
+export const CommentStyling2 = styled.div`
+display: flex;
+flex-flow: row nowrap;
+max-width: 650px;
+justify-content: flex-start;
+align-items: flex-end
+font-family: sans-serif;
+${props => (props.type === "time" ? `color: gray` : null)}
+`;
+
+
+

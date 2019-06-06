@@ -1,6 +1,7 @@
 import React from "react";
-import {Button} from "../Styling"
-import styled, { css } from 'styled-components';
+import { CommentStyling } from "../Styling";
+import { CommentStyling2 } from "../Styling";
+import styled, { css } from "styled-components";
 
 class CommentSection extends React.Component {
   //boom! constructor gone!
@@ -32,11 +33,13 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
     };
     //the abvoe just sets up the template, now to update and push it in
 
-    this.setState({comments: [...this.state.comments, newCommentAddedByUser], newComment: ""
+    this.setState({
+      comments: [...this.state.comments, newCommentAddedByUser],
+      newComment: ""
     });
   };
 
-      /* 
+  /* 
     [] = build a new array
         - Note the setState(comments: ...[])- we're setting the old array of 
         comments into the new array of comments, then just adding newCommentAddedByUser
@@ -69,14 +72,14 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
       second newComment resets the input field to blank
    
     */
-    
+
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
-  // saying "hold this value" - name is unique, so each input field is tracked 
+  // saying "hold this value" - name is unique, so each input field is tracked
   //separately, don't need multiple change handlers, just one!
   //brakcets to understand chain of command
   //referencing a variable, that could have spaces!
@@ -87,19 +90,21 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
     //Just stick the hot JSX right into the tags, format as you go
     return (
       // comment is comment object, index is what we'll use for the key/id
-      //gonna jsut add the new comments right into the existing array, 
+      //gonna jsut add the new comments right into the existing array,
       //then yank them out
       <div>
-        {this.state.comments.map(comment => {
-          return (
-            <>
-              <h3>{comment.username}</h3>
-              <p>{comment.text}</p>
-              <Button>Hello</Button>
-            </>
-          );
-        })}
-        <p className="timestamp">{this.props.timestamp}</p>
+        <CommentStyling>
+          {this.state.comments.map(comment => {
+            return (
+              <CommentStyling2>
+                <h3>{comment.username}</h3> {comment.text}
+              </CommentStyling2>
+            );
+          })}
+        </CommentStyling>
+        <CommentStyling type="time">
+          <p className="timestamp">{this.props.timestamp}</p>
+        </CommentStyling>
 
         <form onSubmit={this.addNewComment}>
           <input
