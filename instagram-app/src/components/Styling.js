@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const Button = styled.button`
+export const Button = styled.button`
   background: transparent;
   border-radius: 3px;
   border: 2px solid palevioletred;
@@ -21,4 +21,19 @@ const Button = styled.button`
     `}
 `;
 
-export default Styling
+export const Search = styled.span`
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-around;
+font-family: sans-serif;
+${props => (props.type === "success" ? `background: red` : null)}
+`;
+
+// export const SearchInsta = styled.h5`
+// display: flex;
+// flex-flow: row nowrap;
+// justify-content: flex-end;
+// font-size: 25px;
+// margin-right: 20px;
+// ${props => (props.type === "success" ? `background: blue` : null)}
+// `;
