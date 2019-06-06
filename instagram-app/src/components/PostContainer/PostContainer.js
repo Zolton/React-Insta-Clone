@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import CommentSection from "../CommentSection/CommentSection";
+import {UserHeader} from "../Styling";
+import {UserImg}  from "../Styling";
+import {MainPost}  from "../Styling";
 
 class PostContainer extends Component {
-  
-  // increaseLikes = e => {
-  //   preventDafault();
-  //   return ({post.likes + 1}
-  // }
+
 
   state = {
     count: 0
   }
 
-  increase = (prevState, count) => {
-    this.setState({count: prevState + 1 })
+  // Kinda works?  Needs some kind of changeHandler to ensure only
+  // 1 post is liked instead of all of them.
+  increase = (count) => {
+    this.setState({count: count+1 })
   }
 
   render() {
@@ -31,12 +32,12 @@ class PostContainer extends Component {
          
           return (
             <>
-              <header>
-                <img src={post.thumbnailUrl} alt="thumbnail" />
+              <UserHeader>
+                <UserImg src={post.thumbnailUrl} alt="thumbnail" />
                 <h3>{post.username}</h3>
-              </header>
+              </UserHeader>
 
-              <img src={post.imageUrl} alt={post.id} />
+              <MainPost type="main" src={post.imageUrl} alt={post.id} />
 
               <section className="likebar" onClick={this.increase}>{post.likes + this.state.count} likes</section>
 
