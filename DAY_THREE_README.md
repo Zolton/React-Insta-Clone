@@ -26,13 +26,13 @@
 
 - Building the High Order Component
 
-  - Create a directory called `authentication`
-  - Inside that directory create a HOC called `withAuthenticate`. This is where all of the magic is going to happen.
-  - This component should be able to take in a component as an argument, and it will return a `class` component.
-  - Inside of `withAuthenticate's` render method, you'll want to return the Component that gets passed into it.
-  - Be sure to export.
-  - Head over to App.js and `import` in our new `withAuthenticate` Higher Order Component.
-  - Set a new const called `ComponentFromWithAuthenticate`, and set it's value to the HOC invoked, with `PostsPage` passed in.
+  x Create a directory called `authentication`
+  x Inside that directory create a HOC called `withAuthenticate`. This is where all of the magic is going to happen.
+  x This component should be able to take in a component as an argument, and it will return a `class` component.
+  x Inside of `withAuthenticate's` render method, you'll want to return the Component that gets passed into it.
+  x Be sure to export.
+ x Head over to App.js and `import` in our new `withAuthenticate` Higher Order Component.
+  x Set a new const called `ComponentFromWithAuthenticate`, and set it's value to the HOC invoked, with `PostsPage` passed in.
   - Inside `App`, you should now render `ComponentFromWithAuthenticate` in place of `PostsPage`.
   - If this worked correctly, then everything should render as it used to.
   - `withAuthenticate` will look a lot like this when you're done setting it up.
@@ -48,8 +48,8 @@ const withAuthenticate = App =>
 
 - Build out the LoginPage component. You can design it how you like
 
-  - In your `components` directory, create a directory called `Login` and add a new file called `Login.js`.
-  - There should be a `username` input, a `password` input, and a `Login` button.
+  x In your `components` directory, create a directory called `Login` and add a new file called `Login.js`.
+  x There should be a `username` input, a `password` input, and a `Login` button.
   - The component should invoke the `login` function in `Login.js` when a user logs in.
   - This login function should set a `username` on `localStorage`. You'll need to check local storage to see if a user is logged in.
   - Be sure to force the page to reload when a user logs in so that our component un-mounts and mounts again.
