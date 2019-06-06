@@ -1,30 +1,13 @@
 import styled, { css } from 'styled-components';
 
-export const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-
-  &:hover {
-    padding: 0.5em 1.25em;
-    font-size: 24px;
-  }
-
-  ${props =>
-    props.primary &&
-    css`
-      background: palevioletred;
-      color: white;
-    `}
-`;
-
 export const Search = styled.span`
 display: flex;
 flex-flow: row nowrap;
-justify-content: space-around;
+max-width: 650px;
+width: 100%;
+justify-content: space-between
+margin: 0 auto;
+margin-bottom: 30px;
 font-family: sans-serif;
 ${props => (props.type === "success" ? `background: red` : null)}
 `;
@@ -57,6 +40,7 @@ margin: 0 auto;
 justify-content: flex-start;
 font-family: sans-serif;
 ${props => (props.type === "time" ? `color: gray` : null)}
+${props => (props.type === "time" ? `align-items: flex-start` : null)}
 `;
 
 export const CommentStyling2 = styled.div`
@@ -69,5 +53,22 @@ font-family: sans-serif;
 ${props => (props.type === "time" ? `color: gray` : null)}
 `;
 
+export const CommentStyling3 = styled.strong`
+margin-right: 20px;
+${props => (props.type === "time" ? `color: gray` : null)}
+`;
+
+export const CommentBoxStyling = styled.form`
+display: flex;
+flex-flow: row nowrap;
+max-width: 650px;
+width: 100%
+margin: 0 auto;
+margin-bottom: 50px;
+justify-content: flex-start;
+font-family: sans-serif;
+`;
+// I don't like styled components - no auto-suggest to avoid typos
+// And it doesn't work on input boxes, gotta use CSS anyway
 
 

@@ -10,6 +10,7 @@ class SearchBar extends Component {
           
             <h3>Instagram</h3>
             <input
+            className="input1"
               name="search"
               onChange={this.props.searchFilter}
               placeholder="search..."

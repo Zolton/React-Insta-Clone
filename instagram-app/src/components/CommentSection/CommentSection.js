@@ -1,6 +1,8 @@
 import React from "react";
 import { CommentStyling } from "../Styling";
 import { CommentStyling2 } from "../Styling";
+import { CommentStyling3 } from "../Styling";
+import { CommentBoxStyling } from "../Styling";
 import styled, { css } from "styled-components";
 
 class CommentSection extends React.Component {
@@ -97,7 +99,8 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
           {this.state.comments.map(comment => {
             return (
               <CommentStyling2>
-                <h3>{comment.username}</h3> {comment.text}
+                <CommentStyling3>{comment.username}</CommentStyling3> 
+                {comment.text}
               </CommentStyling2>
             );
           })}
@@ -106,15 +109,16 @@ just grabs whatever's in this.state.newComment, shoves it into text in the templ
           <p className="timestamp">{this.props.timestamp}</p>
         </CommentStyling>
 
-        <form onSubmit={this.addNewComment}>
+        <CommentBoxStyling onSubmit={this.addNewComment}>
           <input
             type="text"
-            placeholder="add a comment"
+            className="input2"
+            placeholder="Add a comment..."
             name="newComment"
             value={this.state.newComment}
             onChange={this.changeHandler}
           />
-        </form>
+        </CommentBoxStyling>
       </div>
       /*
       this.props needed for timestamp bc we're outside the map, just

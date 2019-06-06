@@ -15,3 +15,17 @@ code {
 .root {
   margin: 0px auto;
 }
+/* 
+.input2 {
+  max-width: 650px;
+  width: 100%;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+} */
+
+.input2 {
+  max-width: 650px;
+  width: 100%;
+  padding: 10px 0px;
+}
